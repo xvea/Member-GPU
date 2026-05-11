@@ -1,3 +1,5 @@
 import { z } from 'zod'
 
-// createListSchema
+export const createListSchema = z.object({
+  name: z.string().min(1).max(100),
+})
