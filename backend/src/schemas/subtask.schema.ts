@@ -1,3 +1,6 @@
 import { z } from 'zod'
 
-// createSubtaskSchema
+export const createSubtaskSchema = z.object({
+  taskId: z.string(),
+  title: z.string().min(1),
+})
