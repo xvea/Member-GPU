@@ -1,5 +1,12 @@
-// ApiSuccess
+export type ApiSuccess<T> = {
+  success: true
+  message: string
+  data: T
+}
 
-// ApiError
+export type ApiError = {
+  success: false
+  error: string
+}
 
-// export ApiResponse<T>
+export type ApiResponse<T> = ApiSuccess<T> | ApiError
