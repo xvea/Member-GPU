@@ -2,6 +2,14 @@ import { db } from '../db'
 import { lists } from '../db/schema'
 import { eq } from 'drizzle-orm'
 
-// createList(data: any)
+export async function createList(data: any) {
+  await db.insert(lists).values(data)
 
-// getLists(userId: string)
+  return data
+}
+
+export async function getLists(userId: string) {
+  return db.query.lists.findMany({
+    where: eq(lists.userId, userId),
+  })
+}
