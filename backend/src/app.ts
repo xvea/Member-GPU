@@ -13,6 +13,7 @@ import taskRoutes from './routes/task.route'
 import { toNodeHandler } from 'better-auth/node'
 import cors from 'cors'
 import morgan from 'morgan'
+import notificationRoutes from './routes/notification.route'
 
 const app: Express = express()
 
@@ -40,6 +41,7 @@ app.use('/api/v1/subtasks', subtaskRoutes)
 app.use('/api/v1/reminders', reminderRoutes)
 app.use('/api/v1/tags', tagRoutes)
 app.use('/api/v1/task-tags', taskTagRoutes)
+app.use('/api/v1/notifications', notificationRoutes)
 app.use('/api/v1/notifications', notificationRoutes)
 
 app.use(errorMiddleware)
