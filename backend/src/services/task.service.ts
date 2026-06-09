@@ -25,8 +25,8 @@ export async function getTaskById(id: string) {
   })
 }
 
-export async function updateTaskStatus(id: string, status: string) {
-  await db.update(tasks).set({ status }).where(eq(tasks.id, id))
+export async function updateTask(id: string, data: Partial<typeof tasks.$inferInsert>) {
+  await db.update(tasks).set(data).where(eq(tasks.id, id))
 }
 
 export async function deleteTask(id: string) {
