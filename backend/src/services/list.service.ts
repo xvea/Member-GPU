@@ -3,9 +3,9 @@ import { lists } from '../db/schema'
 import { eq } from 'drizzle-orm'
 
 export async function createList(data: any) {
-  await db.insert(lists).values(data)
+  const [createdList] = await db.insert(lists).values(data).returning()
 
-  return data
+  return createdList
 }
 
 export async function getLists(userId: string) {
