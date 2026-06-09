@@ -3,9 +3,9 @@ import { tags } from '../db/schema'
 import { eq } from 'drizzle-orm'
 
 export async function createTag(data: any) {
-  await db.insert(tags).values(data)
+  const [createdTag] = await db.insert(tags).values(data).returning()
 
-  return data
+  return createdTag
 }
 
 export async function getTags(userId: string) {
