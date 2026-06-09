@@ -3,5 +3,10 @@ import * as controller from '../controllers/list.controller'
 import { validate } from '../middlewares/validate.middleware'
 import { createListSchema } from '../schemas/list.schema'
 
-// / POST
-// / GET
+const router = Router()
+
+router.post('/', validate(createListSchema), controller.createList)
+
+router.get('/', controller.getLists)
+
+export default router
