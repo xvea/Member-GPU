@@ -7,6 +7,9 @@ export const createTaskSchema = z.object({
   listId: z.string().optional(),
 })
 
-export const updateTaskStatusSchema = z.object({
-  status: z.enum(['todo', 'in_progress', 'done']),
+export const updateTaskSchema = z.object({
+  status: z.enum(['todo', 'in_progress', 'done']).optional(),
+  priority: z.enum(['low', 'medium', 'high']).optional(),
+  description: z.string().optional(),
+  listId: z.string().optional(),
 })
