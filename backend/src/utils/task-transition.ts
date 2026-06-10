@@ -1,3 +1,9 @@
-// taskTransitions: Record<string, string[]>
+export const taskTransitions: Record<string, string[]> = {
+  todo: ['in_progress'],
+  in_progress: ['done'],
+  done: ['todo'],
+}
 
-// canTransition(current: string, next: string)
+export function canTransition(current: string, next: string) {
+  return taskTransitions[current as keyof typeof taskTransitions]?.includes(next)
+}
