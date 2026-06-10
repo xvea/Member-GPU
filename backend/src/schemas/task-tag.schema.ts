@@ -1,3 +1,6 @@
 import { z } from 'zod'
 
-// attachTagSchema
+export const attachTagSchema = z.object({
+  taskId: z.string(),
+  tagId: z.string(),
+})

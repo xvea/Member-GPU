@@ -3,5 +3,10 @@ import * as controller from '../controllers/task-tag.controller'
 import { validate } from '../middlewares/validate.middleware'
 import { attachTagSchema } from '../schemas/task-tag.schema'
 
-// / POST
-// /:taskId/:tagId DELETE
+const router = Router()
+
+router.post('/', validate(attachTagSchema), controller.attachTag)
+
+router.delete('/:taskId/:tagId', controller.detachTag)
+
+export default router

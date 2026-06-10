@@ -1,6 +1,17 @@
 import { Response } from 'express'
 import { ApiResponse } from '../types/api'
 
-// ok<T>(res: Response, data: T, message = 'Success', status = 200): Response
+export function ok<T>(res: Response, data: T, message = 'Success', status = 200): Response {
+  return res.status(status).json({
+    success: true,
+    message,
+    data,
+  } as ApiResponse<T>)
+}
 
-// fail(res: Response, error: string, status = 400): Response
+export function fail(res: Response, error: string, status = 400): Response {
+  return res.status(status).json({
+    success: false,
+    error,
+  } as ApiResponse<null>)
+}
