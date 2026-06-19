@@ -10,7 +10,9 @@
     "dev": "tsx watch src/server.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "fix": "prettier --write ."
+    "fix": "prettier --write .",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@libsql/client": "^0.17.3",
@@ -32,10 +34,13 @@
     "@types/morgan": "^1.9.10",
     "@types/node": "^25.6.0",
     "@types/nodemailer": "^8.0.0",
+    "@types/supertest": "^7.2.0",
     "@types/web-push": "^3.6.4",
     "drizzle-kit": "^0.31.10",
     "prettier": "^3.8.3",
+    "supertest": "^7.2.2",
     "tsx": "^4.21.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
   }
 }
