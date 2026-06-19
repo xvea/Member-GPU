@@ -15,19 +15,9 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/signin', request.url))
   }
 
-  // redirect ke /task/all jika path adalah /
-  if (request.nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/tasks/all', request.url))
-  }
-
-  // redirect ke / jika path adalah /tasks/all
-  if (request.nextUrl.pathname === '/tasks/all') {
-    return NextResponse.redirect(new URL('/', request.url))
-  }
-
   return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/'],
+  matcher: ['/tasks/all', '/setting'],
 }

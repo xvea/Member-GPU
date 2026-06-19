@@ -23,6 +23,10 @@ const envSchema = z.object({
     VAPID_SUBJECT: z.string().min(1, { message: 'VAPID_SUBJECT wajib diisi' }),
     VAPID_PUBLIC_KEY: z.string().min(1, { message: 'VAPID_PUBLIC_KEY wajib diisi' }),
     VAPID_PRIVATE_KEY: z.string().min(1, { message: 'VAPID_PRIVATE_KEY wajib diisi' }),
+
+    HOST: z.string().url({ message: 'HOST harus URL yang valid' }),
+    AUTH_USER: z.string().min(1, { message: 'AUTH_USER wajib diisi' }),
+    AUTH_PASSWORD: z.string().min(1, { message: 'AUTH_PASSWORD wajib diisi' }),
 });
 
 const envTest = envSchema.safeParse(process.env);
